@@ -1,1 +1,14 @@
-<p>task-list works!</p>
+<p>Tarefas</p>
+<hr />
+
+<button type="button" class="btn btn-primary mb-2" [routerLink]="['/new']">
+  nova tarefa
+</button>
+
+<section>
+  <ul class="list-group">
+    <li class="list-group-item " *ngFor="let task of tasks">
+     <app-task-list-item [task]="task" class="task-item"></app-task-list-item>
+    </li>
+  </ul>
+</section>
