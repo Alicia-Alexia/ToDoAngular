@@ -22,4 +22,29 @@ export class TaskService {
   getAll(){
     return  this.tasks;
   }
+
+  getById(id:number){
+    const tasks = this.tasks.find((value) => value.id == id);
+    return tasks;
+  }
+
+  save(task: Task){
+    if(task.id ){
+      let taskArr = this.getById(task.id);
+
+      if (taskArr !== undefined) {
+        taskArr.description = task.description;
+        taskArr.completed = task.completed;
+  }
+  }else {
+    const lastId = this.tasks[this.tasks.length-1].id;
+    task.id = lastId + 1;
+    task.completed = false;
+    this.tasks.push(task);
+  }
+}
+  delete(id: number){
+    const taskIndex = this.tasks.findIndex((value) => value.id == id);
+    this.tasks.splice(taskIndex, 1);
+  }
 }

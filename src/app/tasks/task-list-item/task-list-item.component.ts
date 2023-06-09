@@ -8,7 +8,7 @@ import { Task } from '../shared/task';
 })
 export class TaskListItemComponent implements OnInit {
   @Input()
-  task: Task = new Task;
+  task: Task  =new Task();
 
   constructor() { }
 
